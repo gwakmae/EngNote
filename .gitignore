@@ -1,0 +1,22 @@
+# 운영체제 관련 파일
+.DS_Store
+Thumbs.db
+ehthumbs.db
+# IDE 및 에디터 설정
+.vscode/
+.idea/
+*.swp
+# 언어/프레임워크 관련 (Node.js, 일반 웹 프로젝트)
+node_modules/
+dist/
+build/
+*.log
+# 빌드 및 의존성
+npm-debug.log*
+yarn-error.log
+*.cache
+temp/
+# 로그 및 임시 파일
+tmp/
+*.tmp
+.env

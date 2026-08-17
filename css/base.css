@@ -1,0 +1,70 @@
+/* ═══ 기본 변수·리셋 ═══ */
+:root {
+  --primary: #2B3E4A;
+  --primary-soft: #35485A;
+  --primary-light: #4A6B8A;
+  --beige: #F5F1EA;
+  --beige-deep: #EFE9E0;
+  --accent: #2B6CB0;
+  --danger: #C0392B;
+  --line: #DDDDDD;
+  --text: #333333;
+  --text-sub: #777777;
+  --radius: 8px;
+  --shadow: 0 8px 28px rgba(0, 0, 0, .18);
+  --nav-h: 58px;
+  --topbar-h: 54px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  background: #FDFDFB;
+  color: var(--text);
+  font-size: 15px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3 { margin: 0; }
+
+button {
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  background: #eee;
+  color: var(--text);
+  transition: filter .15s, transform .05s;
+}
+button:hover { filter: brightness(.96); }
+button:active { transform: scale(.98); }
+
+button.primary { background: var(--primary); color: #fff; font-weight: bold; }
+button.accent  { background: var(--accent); color: #fff; font-weight: bold; }
+button.muted   { background: #8A8A8A; color: #fff; }
+button.danger  { background: var(--danger); color: #fff; }
+button.ghost   { background: transparent; border: 1px solid var(--line); }
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  width: 100%;
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--primary-light);
+  outline-offset: -1px;
+}
+textarea { resize: vertical; line-height: 1.5; }
+
+label.field {
+  display: flex; flex-direction: column; gap: 4px;
+  font-size: 13px; font-weight: 600; color: var(--text-sub);
+}

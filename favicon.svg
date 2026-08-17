@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- 배경: 라운드 사각형 -->
+  <rect width="64" height="64" rx="14" fill="#2B3E4A"/>
+  
+  <!-- 메인 문자: E (English) -->
+  <text x="32" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="bold" fill="#F5F1EA" text-anchor="middle">E</text>
+  
+  <!-- 악센트: 밑줄 (문장 패턴의 빈칸/밑줄을 상징) -->
+  <rect x="18" y="48" width="28" height="3" rx="1.5" fill="#2B6CB0"/>
+</svg>

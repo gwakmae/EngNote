@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="영어 단어·문장 패턴 노트 — AI 분석 결과를 모아 학습하는 앱">
+    <meta name="theme-color" content="#2B3E4A">
+    <title>EngNote — 영어 단어·문장 패턴</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div id="app-shell">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">📘</div>
+                <div>
+                    <strong>EngNote</strong>
+                    <span id="header-count">로딩 중...</span>
+                </div>
+            </div>
+            <div id="sync-badge" class="sync-badge" title="동기화 상태">준비 중</div>
+        </header>
+
+        <main id="main-view" class="main-view"></main>
+
+        <nav class="bottom-nav" aria-label="화면 전환">
+            <button type="button" class="nav-button active" data-view="words">
+                <span class="nav-icon">📚</span>단어
+            </button>
+            <button type="button" class="nav-button" data-view="patterns">
+                <span class="nav-icon">🧩</span>문장 패턴
+            </button>
+            <button type="button" class="nav-button" data-view="import">
+                <span class="nav-icon">📥</span>가져오기
+            </button>
+            <button type="button" class="nav-button" data-view="settings">
+                <span class="nav-icon">⚙️</span>설정
+            </button>
+        </nav>
+    </div>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/parser.js"></script>
+    <script src="js/merge.js"></script>
+    <script src="js/wordView.js"></script>
+    <script src="js/patternView.js"></script>
+    <script src="js/importView.js"></script>
+    <script src="js/settingsView.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

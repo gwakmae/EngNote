@@ -1,0 +1,183 @@
+/* ═══ 앱 껍데기: 상단바 / 본문 / 하단 탭 ═══ */
+#app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+/* ── 상단바 ── */
+.topbar {
+  height: var(--topbar-h);
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 14px;
+  background: var(--primary);
+  color: #fff;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; cursor: pointer; }
+.brand:hover .brand-mark { transform: scale(1.1); }
+.brand-mark { font-size: 22px; transition: transform .15s; }
+.brand strong { font-size: 17px; margin-right: 8px; }
+#header-count { font-size: 13px; color: #c9d4dc; white-space: nowrap; }
+
+.sync-badge {
+  flex: none;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffffff22;
+  white-space: nowrap;
+}
+.sync-badge.dirty { background: var(--accent); }
+.sync-badge.ok    { background: #2e7d4f; }
+.sync-badge.error { background: var(--danger); }
+
+/* ── 본문 ── */
+.main-view {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+.view {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+.view.active { display: flex; }
+
+/* ── 하단 탭 (모바일 기본) ── */
+.bottom-nav {
+  height: var(--nav-h);
+  flex: none;
+  display: flex;
+  background: #fff;
+  border-top: 1px solid var(--line);
+}
+.nav-button {
+  flex: 1;
+  background: transparent;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+.nav-button .nav-icon { font-size: 20px; }
+.nav-button.active { color: var(--primary); font-weight: bold; }
+
+/* ── 목록 탭 내부 레이아웃 (단어/패턴 공용) ── */
+.split-view .list-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;   /* 세로 flex에서 자식이 넘치지 않게 하는 핵심 */
+}
+
+.split-view .list-toolbar {
+  flex: none;
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--beige-deep);
+  align-items: center;
+  flex-wrap: wrap;
+}
+.split-view .list-toolbar .search { width: 170px; flex: none; }
+.split-view .list-toolbar .source-btn { flex: 1; min-width: 160px; text-align: left; }
+.split-view .list-toolbar select { width: auto; flex: none; }
+
+.split-view .entry-scroll {
+  flex: 1;
+  min-height: 0;   /* flex 부모 안에서 스크롤이 실제로 생기도록 */
+  overflow-y: auto;
+  padding: 8px 12px 20px;
+}
+
+/* ── 가져오기/설정 탭: 세로 스크롤 폼 ── */
+.form-view {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.form-view h2 { font-size: 17px; color: var(--primary); margin-top: 8px; }
+.form-actions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+
+/* ── 프롬프트 패널 (목록 탭 안 접이식) ── */
+.prompt-panel {
+  flex: none;
+  border-bottom: 1px solid var(--line);
+  background: var(--beige);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.prompt-panel .prompt-buttons { display: flex; gap: 8px; }
+.prompt-panel .prompt-buttons button { flex: 1; }
+
+/* ═══ 데스크탑 모드 (900px 이상) ═══ */
+@media (min-width: 900px) {
+  /* 탭 바를 상단으로 이동 — 데스크탑 프로그램처럼 */
+  .bottom-nav {
+    order: -1;
+    height: 42px;
+    border-top: none;
+    border-bottom: 1px solid var(--line);
+    background: var(--beige-deep);
+    justify-content: flex-start;
+    padding: 0 12px;
+    gap: 4px;
+  }
+  .nav-button {
+    flex: none;
+    flex-direction: row;
+    gap: 6px;
+    font-size: 14px;
+    padding: 0 18px;
+    border-radius: 0;
+    height: 100%;
+  }
+  .nav-button .nav-icon { font-size: 16px; }
+  .nav-button.active {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  /* 목록 탭: 프롬프트 왼쪽 열 + 목록 오른쪽 */
+  .split-view { flex-direction: row !important; }
+  .split-view .prompt-panel {
+    width: 330px;
+    flex: none;
+    border-bottom: none;
+    border-right: 1px solid var(--line);
+    overflow-y: auto;
+  }
+  .split-view .list-column { min-width: 0; }
+
+  .split-view .entry-scroll {
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .form-view { max-width: 860px; }
+
+  /* 토스트는 하단 탭이 없으므로 더 아래로 */
+  .toast-container { bottom: 24px; }
+}
