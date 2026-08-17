@@ -1,6 +1,134 @@
 {
   "version": 1,
-  "sources": [],
-  "entries": [],
+  "sources": [
+    {
+      "id": 1,
+      "name": "CNN 기사1",
+      "createdUtc": "2026-08-17T07:37:23.397Z"
+    }
+  ],
+  "entries": [
+    {
+      "id": 1,
+      "en": "exercise",
+      "pronUs": "엑서사이즈",
+      "pronUk": null,
+      "ko": "(군사) 훈련",
+      "sourceId": 1,
+      "contexts": [
+        "President Donald Trump announced Sunday that the United States would reduce military exercises with key regional ally South Korea, just hours before that were due to get underway, citing his positive relationship with North Korean leader Kim Jong Un and Seoul's lack of assistance with Iran."
+      ]
+    },
+    {
+      "id": 2,
+      "en": "regional ally",
+      "pronUs": "리저널 앨라이",
+      "pronUk": null,
+      "ko": "지역 동맹국",
+      "sourceId": 1,
+      "contexts": [
+        "President Donald Trump announced Sunday that the United States would reduce military exercises with key regional ally South Korea, just hours before that were due to get underway, citing his positive relationship with North Korean leader Kim Jong Un and Seoul's lack of assistance with Iran."
+      ]
+    },
+    {
+      "id": 3,
+      "en": "underway",
+      "pronUs": "언더웨이",
+      "pronUk": null,
+      "ko": "시작된, 진행 중인",
+      "sourceId": 1,
+      "contexts": [
+        "President Donald Trump announced Sunday that the United States would reduce military exercises with key regional ally South Korea, just hours before that were due to get underway, citing his positive relationship with North Korean leader Kim Jong Un and Seoul's lack of assistance with Iran."
+      ]
+    },
+    {
+      "id": 4,
+      "en": "cite",
+      "pronUs": "싸이트",
+      "pronUk": null,
+      "ko": "~을 이유로 들다",
+      "sourceId": 1,
+      "contexts": [
+        "President Donald Trump announced Sunday that the United States would reduce military exercises with key regional ally South Korea, just hours before that were due to get underway, citing his positive relationship with North Korean leader Kim Jong Un and Seoul's lack of assistance with Iran."
+      ]
+    },
+    {
+      "id": 5,
+      "en": "hostile",
+      "pronUs": "하스틀",
+      "pronUk": "호스타일",
+      "ko": "적대적인",
+      "sourceId": 1,
+      "contexts": [
+        "These exercises are not only costly, with much of these costs paid for by the United States of America (as usual!), but send a signal that is totally inappropriate and hostile, to a Country that, as long as Donald J. Trump has been President, has been unthreatening and respectful."
+      ]
+    },
+    {
+      "id": 6,
+      "en": "unthreatening",
+      "pronUs": "언쓰레트닝",
+      "pronUk": null,
+      "ko": "위협적이지 않은",
+      "sourceId": 1,
+      "contexts": [
+        "These exercises are not only costly, with much of these costs paid for by the United States of America (as usual!), but send a signal that is totally inappropriate and hostile, to a Country that, as long as Donald J. Trump has been President, has been unthreatening and respectful."
+      ]
+    },
+    {
+      "id": 7,
+      "en": "mutual",
+      "pronUs": "뮤추얼",
+      "pronUk": null,
+      "ko": "상호 간의",
+      "sourceId": 1,
+      "contexts": [
+        "South Korea has been a close American ally for over 70 years and the two nations have a mutual defense treaty, primarily designed to protect it from North Korea — a burgeoning military power that now possesses nuclear warheads and intercontinental ballistic missiles."
+      ]
+    },
+    {
+      "id": 8,
+      "en": "burgeon",
+      "pronUs": "버전",
+      "pronUk": null,
+      "ko": "급성장하다",
+      "sourceId": 1,
+      "contexts": [
+        "South Korea has been a close American ally for over 70 years and the two nations have a mutual defense treaty, primarily designed to protect it from North Korea — a burgeoning military power that now possesses nuclear warheads and intercontinental ballistic missiles."
+      ]
+    },
+    {
+      "id": 9,
+      "en": "warhead",
+      "pronUs": "워헤드",
+      "pronUk": null,
+      "ko": "(미사일) 탄두",
+      "sourceId": 1,
+      "contexts": [
+        "South Korea has been a close American ally for over 70 years and the two nations have a mutual defense treaty, primarily designed to protect it from North Korea — a burgeoning military power that now possesses nuclear warheads and intercontinental ballistic missiles."
+      ]
+    },
+    {
+      "id": 10,
+      "en": "intercontinental ballistic missile",
+      "pronUs": "인터컨티넨털 밸리스틱 미사일",
+      "pronUk": null,
+      "ko": "대륙간 탄도 미사일",
+      "sourceId": 1,
+      "contexts": [
+        "South Korea has been a close American ally for over 70 years and the two nations have a mutual defense treaty, primarily designed to protect it from North Korea — a burgeoning military power that now possesses nuclear warheads and intercontinental ballistic missiles."
+      ]
+    },
+    {
+      "id": 11,
+      "en": "installation",
+      "pronUs": "인스털레이션",
+      "pronUk": null,
+      "ko": "(군사) 시설, 기지",
+      "sourceId": 1,
+      "contexts": [
+        "The US and South Korea frequently hold joint military drills and South Korea hosts the largest US military installation overseas, Camp Humphreys — home to tens of thousands of American service members and their families."
+      ]
+    }
+  ],
   "patterns": []
 }
