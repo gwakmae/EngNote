@@ -15,8 +15,17 @@ const WordView = (() => {
   function render(container) {
     container.innerHTML = `
       <div class="prompt-panel">
+        <details class="usage-guide" open>
+          <summary>표시하는 방법</summary>
+          <ul>
+            <li>한 단어 모를 때: <code>@@word</code> (앞에만)</li>
+            <li>숙어/구동사 모를 때: <code>@@take into account@@</code> (앞뒤로)</li>
+            <li>문장 패턴 모를 때: <code>@@It is no use crying@@</code> (해당 부분)</li>
+            <li>여러 개 표시 가능, 한글 메모 섞여도 OK</li>
+          </ul>
+        </details>
         <strong>분석할 영어 문장</strong>
-        <textarea id="word-analysis-input" rows="4" placeholder="모르는 단어는 *별표*로 감싸고, 아래 복사 버튼을 누르세요."></textarea>
+        <textarea id="word-analysis-input" rows="4" placeholder="예: We need to @@take into account@@ the shipping cost."></textarea>
         <div class="prompt-buttons">
           <button id="btn-copy-filled" class="primary">📋 문장 포함 복사</button>
           <button id="btn-copy-prompt" class="muted">📄 프롬프트만 복사</button>
@@ -56,7 +65,6 @@ const WordView = (() => {
   }
 
   // ── 필터 + 정렬 + 그리기 ──
-  // 단어 탭이 화면에 없을 때는 건너뛴다 (탭 전환 시 render가 다시 refresh 호출)
   function refresh() {
     if (!$('#word-list')) return;
 
@@ -246,7 +254,7 @@ const WordView = (() => {
     modal.innerHTML = `
       <div class="modal-card">
         <h2 style="color:var(--primary)">수동으로 단어 추가</h2>
-        <label class="field">영어 *<input id="m-en" autocomplete="off"></label>
+        <label class="field">영어 *<input id="m-en" autocomplete="off" placeholder="예: take into account"></label>
         <label class="field">미국 발음 (한글 — 어려운 단어만)<input id="m-pron-us" autocomplete="off"></label>
         <label class="field">영국 발음 (미국과 다를 때만)<input id="m-pron-uk" autocomplete="off"></label>
         <label class="field">한국어 뜻 (문맥상의 의미)<input id="m-ko" autocomplete="off"></label>

@@ -13,8 +13,16 @@ const PatternView = (() => {
   function render(container) {
     container.innerHTML = `
       <div class="prompt-panel">
+        <details class="usage-guide">
+          <summary>표시하는 방법</summary>
+          <ul>
+            <li>문장에서 패턴 배우기: <code>@@It is no use crying@@</code> over spilt milk.</li>
+            <li>패턴 직접 질문: <code>It is no use ~ing</code> 또는 <code>have a hard time ~ing</code></li>
+            <li>단어 탭에서 @@ 표시한 문장을 여기 붙여도 자동으로 패턴 분석됨</li>
+          </ul>
+        </details>
         <strong>패턴을 배울 영어 문장 / 패턴</strong>
-        <textarea id="pat-analysis-input" rows="4" placeholder="예: It is no use crying over spilt milk. 또는 It is no use ~ing"></textarea>
+        <textarea id="pat-analysis-input" rows="4" placeholder="예: @@It is no use crying@@ over spilt milk. 또는 It is no use ~ing"></textarea>
         <div class="prompt-buttons">
           <button id="pat-copy-filled" class="primary">📋 입력 포함 복사</button>
           <button id="pat-copy-prompt" class="muted">📄 프롬프트만 복사</button>
