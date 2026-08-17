@@ -5,6 +5,11 @@
       "id": 1,
       "name": "CNN 기사1",
       "createdUtc": "2026-08-17T07:37:23.397Z"
+    },
+    {
+      "id": 2,
+      "name": "박찬욱 with 놀란",
+      "createdUtc": "2026-08-17T09:20:48.210Z"
     }
   ],
   "entries": [
@@ -128,7 +133,149 @@
       "contexts": [
         "The US and South Korea frequently hold joint military drills and South Korea hosts the largest US military installation overseas, Camp Humphreys — home to tens of thousands of American service members and their families."
       ]
+    },
+    {
+      "id": 12,
+      "en": "film Sympathizer",
+      "pronUs": "",
+      "pronUk": null,
+      "ko": "영화 '신파사이저(동조자)'",
+      "sourceId": 2,
+      "contexts": [
+        "I still remember when I met Robert Downey Jr. in the film Sympathizer."
+      ]
+    },
+    {
+      "id": 13,
+      "en": "state",
+      "pronUs": "",
+      "pronUk": null,
+      "ko": "상태, 상황",
+      "sourceId": 2,
+      "contexts": [
+        "In that state, I studied for a long time, and as a result, I came to the conclusion that making it into a Korean film is better for me."
+      ]
+    },
+    {
+      "id": 14,
+      "en": "non-diegetic",
+      "pronUs": "논디제딕",
+      "pronUk": null,
+      "ko": "비디제틱의, 화면 밖의",
+      "sourceId": 2,
+      "contexts": [
+        "I think the harmonica difference between diegetic and non-diegetic music, you know, the sound effects of music coming together in that moment is very important."
+      ]
+    },
+    {
+      "id": 15,
+      "en": "pluck",
+      "pronUs": "",
+      "pronUk": null,
+      "ko": "뜯기, 튕김",
+      "sourceId": 2,
+      "contexts": [
+        "Ludwig Göransson, the composer, myself, we worked on it a long time trying to figure out a way that he could use the lyre, the stringed instrument, to construct a tune that would end with the bow note, you know, the note of the pluck of the bow."
+      ]
+    },
+    {
+      "id": 16,
+      "en": "Scylla and Charybdis",
+      "pronUs": "스킬라 앤 카리브디스",
+      "pronUk": null,
+      "ko": "스킬라와 카리브디스",
+      "sourceId": 2,
+      "contexts": [
+        "I wanted to see the Cyclops and the Sirens and Scylla and Charybdis."
+      ]
+    },
+    {
+      "id": 17,
+      "en": "thematically",
+      "pronUs": "테마티컬리",
+      "pronUk": null,
+      "ko": "주제적으로",
+      "sourceId": 2,
+      "contexts": [
+        "And then I wanted to get across this idea that became thematically very important to the film, which is that the gods would appear to these characters in disguise."
+      ]
+    },
+    {
+      "id": 18,
+      "en": "humble",
+      "pronUs": "험블",
+      "pronUk": null,
+      "ko": "겸손한, 평범한",
+      "sourceId": 2,
+      "contexts": [
+        "They would appear as humble people."
+      ]
+    },
+    {
+      "id": 19,
+      "en": "portray",
+      "pronUs": "포트레이",
+      "pronUk": null,
+      "ko": "묘사하다, 표현하다",
+      "sourceId": 2,
+      "contexts": [
+        "And so the way in which I wanted to portray the gods was very much in keeping with this idea of ground level view of the story, looking at the story from the characters, not from above them."
+      ]
+    },
+    {
+      "id": 20,
+      "en": "confronts",
+      "pronUs": "컨프런츠",
+      "pronUk": null,
+      "ko": "직면하게 하다, 맞서다",
+      "sourceId": 2,
+      "contexts": [
+        "But I think, yes, as you suggest, I think the film confronts him and forces the character to confront his own agency, which I think is more relatable for a modern audience, definitely."
+      ]
+    },
+    {
+      "id": 21,
+      "en": "jumping off",
+      "pronUs": "",
+      "pronUk": null,
+      "ko": "출발점의, 도약대의",
+      "sourceId": 2,
+      "contexts": [
+        "In a way, you have a great jumping off point."
+      ]
+    },
+    {
+      "id": 22,
+      "en": "along that way",
+      "pronUs": "",
+      "pronUk": null,
+      "ko": "그런 식으로, 그 방향으로",
+      "sourceId": 2,
+      "contexts": [
+        "So, I find ways when it gets too lonely and it gets too isolated that you feel you can't see the wood for the trees, I find ways to reach out to people, move things along that way."
+      ]
+    },
+    {
+      "id": 23,
+      "en": "promotional",
+      "pronUs": "프로모셔널",
+      "pronUk": null,
+      "ko": "홍보의, 판촉의",
+      "sourceId": 2,
+      "contexts": [
+        "I hope you finish the rest of the promotional schedule well and don't be lazy."
+      ]
     }
   ],
-  "patterns": []
+  "patterns": [
+    {
+      "id": 1,
+      "pattern": "How is that?",
+      "ko": "그게 어떻게 된 거죠? / 어떻게 그게 가능하죠?",
+      "sourceId": 2,
+      "examples": [
+        "You wrote this work alone. How is that?"
+      ]
+    }
+  ]
 }
