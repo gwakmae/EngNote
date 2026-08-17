@@ -121,5 +121,38 @@ const Merger = (() => {
     return { added, merged, skipped };
   }
 
-  return { importWords, importPatterns };
+  // ── 출처 병합 ──
+  // sourceIds에 속한 출처들의 단어·패턴을 모두 targetId 출처로 옮기고,
+  // 옮겨진 출처들은 삭제한다. newName이 있으면 대상 출처 이름도 바꾼다.
+  // 반환: 옮겨진 항목 수 (단어 + 패턴)
+  function mergeSources(targetId, sourceIds, newName) {
+    const target = Data.state.sources.find(s => s.id === targetId);
+    if (!target) return 0;
+
+    const moving = sourceIds.filter(id => id !== targetId);
+    if (moving.length === 0) return 0;
+
+    if (newName && newName.trim())
+      target.name = newName.trim();
+
+    let moved = 0;
+    for (const e of Data.state.entries) {
+      if (moving.includes(e.sourceId)) {
+        e.sourceId = targetId;
+        moved++;
+      }
+    }
+    for (const p of Data.state.patterns) {
+      if (moving.includes(p.sourceId)) {
+        p.sourceId = targetId;
+        moved++;
+      }
+    }
+
+    Data.state.sources = Data.state.sources.filter(s => !moving.includes(s.id));
+    Data.markDirty();
+    return moved;
+  }
+
+  return { importWords, importPatterns, mergeSources };
 })();
