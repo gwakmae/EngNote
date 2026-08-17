@@ -18,7 +18,7 @@ const PatternView = (() => {
           <ul>
             <li>문장에서 패턴 배우기: <code>@@It is no use crying@@</code> over spilt milk.</li>
             <li>패턴 직접 질문: <code>It is no use ~ing</code> 또는 <code>have a hard time ~ing</code></li>
-            <li>단어 탭에서 @@ 표시한 문장을 여기 붙여도 자동으로 패턴 분석됨</li>
+            <li>단어·구·문장 구분 없이 물어볼 때: <strong>직접 질문 프롬프트</strong> 사용</li>
           </ul>
         </details>
         <strong>패턴을 배울 영어 문장 / 패턴</strong>
@@ -28,8 +28,16 @@ const PatternView = (() => {
           <button id="pat-copy-prompt" class="muted">📄 프롬프트만 복사</button>
         </div>
         <details>
-          <summary style="cursor:pointer;font-size:13px;color:#777">프롬프트 보기</summary>
+          <summary style="cursor:pointer;font-size:13px;color:#777">프롬프트 보기 (패턴 분석용)</summary>
           <textarea id="pat-prompt-preview" rows="10" style="margin-top:6px;font-size:12px">${Util.escapeHtml(PATTERN_PROMPT)}</textarea>
+        </details>
+        <details>
+          <summary style="cursor:pointer;font-size:13px;color:#777">직접 질문 프롬프트 (단어·구·문장 모두 이것 하나로)</summary>
+          <p style="font-size:12px;color:#777;margin:6px 0 0">
+            위 입력창에 단어·구·문장을 적고 아래 버튼을 누르면, 내용이 프롬프트에 끼워져서 복사됩니다.
+          </p>
+          <textarea id="pat-manual-prompt-preview" rows="10" style="margin-top:6px;font-size:12px">${Util.escapeHtml(MANUAL_PROMPT)}</textarea>
+          <button id="pat-btn-copy-manual" class="muted" style="margin-top:6px;width:100%">📄 직접 질문 프롬프트 복사 (입력 내용 포함)</button>
         </details>
       </div>
       <div class="list-column">
@@ -56,6 +64,7 @@ const PatternView = (() => {
     $('#pat-copy-filled').addEventListener('click', copyPromptWithInput);
     $('#pat-copy-prompt').addEventListener('click', () =>
       App.copyText($('#pat-prompt-preview').value, '프롬프트 복사됨 ✓'));
+    $('#pat-btn-copy-manual').addEventListener('click', copyManualPrompt);
 
     refresh();
   }
@@ -218,6 +227,20 @@ const PatternView = (() => {
         : template + '\n\n[입력]\n' + input)
       : template;
     App.copyText(text, '입력 포함 복사됨 ✓');
+  }
+
+  // ── 직접 질문 프롬프트 복사 (입력창 내용을 [입력] 자리에 끼움) ──
+  function copyManualPrompt() {
+    const input = $('#pat-analysis-input').value.trim();
+    const template = $('#pat-manual-prompt-preview').value;
+    const text = input
+      ? (template.includes(MANUAL_PROMPT_PLACEHOLDER)
+        ? template.replace(MANUAL_PROMPT_PLACEHOLDER, input)
+        : template + '\n\n[입력]\n' + input)
+      : template;
+    App.copyText(text, input
+      ? '직접 질문 프롬프트 복사됨 ✓ (입력 내용 포함)'
+      : '직접 질문 프롬프트 복사됨 ✓ — 입력 내용이 비어 있습니다');
   }
 
   return { render, refresh };

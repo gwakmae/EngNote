@@ -21,18 +21,27 @@ const WordView = (() => {
             <li>한 단어 모를 때: <code>@@word</code> (앞에만)</li>
             <li>숙어/구동사 모를 때: <code>@@take into account@@</code> (앞뒤로)</li>
             <li>문장 패턴 모를 때: <code>@@It is no use crying@@</code> (해당 부분)</li>
+            <li>단어·구만 통째로 물어볼 때: 그냥 적고 <strong>직접 질문 프롬프트</strong> 사용</li>
             <li>여러 개 표시 가능, 한글 메모 섞여도 OK</li>
           </ul>
         </details>
-        <strong>분석할 영어 문장</strong>
-        <textarea id="word-analysis-input" rows="4" placeholder="예: We need to @@take into account@@ the shipping cost."></textarea>
+        <strong>분석할 영어 (문장 / 구 / 단어)</strong>
+        <textarea id="word-analysis-input" rows="4" placeholder="예: We need to @@take into account@@ the shipping cost.&#10;또는 그냥: take into account"></textarea>
         <div class="prompt-buttons">
           <button id="btn-copy-filled" class="primary">📋 문장 포함 복사</button>
           <button id="btn-copy-prompt" class="muted">📄 프롬프트만 복사</button>
         </div>
         <details>
-          <summary style="cursor:pointer;font-size:13px;color:#777">프롬프트 보기</summary>
+          <summary style="cursor:pointer;font-size:13px;color:#777">프롬프트 보기 (문장에서 @@ 표시 분석용)</summary>
           <textarea id="word-prompt-preview" rows="10" style="margin-top:6px;font-size:12px">${Util.escapeHtml(WORD_PROMPT)}</textarea>
+        </details>
+        <details>
+          <summary style="cursor:pointer;font-size:13px;color:#777">직접 질문 프롬프트 (단어·구·문장 모두 이것 하나로)</summary>
+          <p style="font-size:12px;color:#777;margin:6px 0 0">
+            위 입력창에 단어·구·문장을 적고 아래 버튼을 누르면, 내용이 프롬프트에 끼워져서 복사됩니다.
+          </p>
+          <textarea id="manual-prompt-preview" rows="10" style="margin-top:6px;font-size:12px">${Util.escapeHtml(MANUAL_PROMPT)}</textarea>
+          <button id="btn-copy-manual" class="muted" style="margin-top:6px;width:100%">📄 직접 질문 프롬프트 복사 (입력 내용 포함)</button>
         </details>
       </div>
       <div class="list-column">
@@ -60,6 +69,7 @@ const WordView = (() => {
     $('#btn-copy-filled').addEventListener('click', copyPromptWithSentence);
     $('#btn-copy-prompt').addEventListener('click', () =>
       App.copyText($('#word-prompt-preview').value, '프롬프트 복사됨 ✓ — 캡처 이미지와 함께 붙여넣으세요'));
+    $('#btn-copy-manual').addEventListener('click', copyManualPrompt);
 
     refresh();
   }
@@ -311,6 +321,20 @@ const WordView = (() => {
         : template + '\n\n[영어 문장]\n' + sentence)
       : template;
     App.copyText(text, '문장 포함 복사됨 ✓');
+  }
+
+  // ── 직접 질문 프롬프트 복사 (입력창 내용을 [입력] 자리에 끼움) ──
+  function copyManualPrompt() {
+    const input = $('#word-analysis-input').value.trim();
+    const template = $('#manual-prompt-preview').value;
+    const text = input
+      ? (template.includes(MANUAL_PROMPT_PLACEHOLDER)
+        ? template.replace(MANUAL_PROMPT_PLACEHOLDER, input)
+        : template + '\n\n[입력]\n' + input)
+      : template;
+    App.copyText(text, input
+      ? '직접 질문 프롬프트 복사됨 ✓ (입력 내용 포함)'
+      : '직접 질문 프롬프트 복사됨 ✓ — 입력 내용이 비어 있습니다');
   }
 
   return { render, refresh };
