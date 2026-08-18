@@ -181,3 +181,31 @@
   /* 토스트는 하단 탭이 없으므로 더 아래로 */
   .toast-container { bottom: 24px; }
 }
+
+/* ═══ 모바일: 뷰 전체 통 스크롤 (상단 패널이 위로 밀려 올라감) ═══ */
+@media (max-width: 899px) {
+  /* 1) 스크롤 주체를 entry-scroll → 뷰 전체로 변경 */
+  .split-view {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;  /* iOS 관성 스크롤 */
+  }
+
+  /* 2) 목록 열이 남는 높이만 차지하지 않고 내용만큼 늘어나게 */
+  .split-view .list-column {
+    flex: none;
+    min-height: 0;
+  }
+
+  /* 3) 단어 목록 자체 스크롤 해제 — 내용 전체가 펼쳐지고 뷰가 스크롤 */
+  .split-view .entry-scroll {
+    flex: none;
+    overflow-y: visible;
+  }
+
+  /* 4) (권장) 검색/정렬/수동 추가 툴바만 상단에 붙박이로 남김 */
+  .split-view .list-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}
