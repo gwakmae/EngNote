@@ -10,6 +10,11 @@
       "id": 2,
       "name": "박찬욱 with 놀란",
       "createdUtc": "2026-08-17T09:20:48.210Z"
+    },
+    {
+      "id": 3,
+      "name": "141",
+      "createdUtc": "2026-08-26T09:03:16.709Z"
     }
   ],
   "entries": [
@@ -265,6 +270,72 @@
       "contexts": [
         "I hope you finish the rest of the promotional schedule well and don't be lazy."
       ]
+    },
+    {
+      "id": 24,
+      "en": "glisten",
+      "pronUs": "글리슨",
+      "pronUk": null,
+      "ko": "(빛이나 습기로) 반짝이다, 윤기가 나다",
+      "sourceId": 3,
+      "contexts": [
+        "A Married Woman, Her Skin Glistening With Rain, Possesses A Sensual And Soft-looking Body..."
+      ]
+    },
+    {
+      "id": 25,
+      "en": "possess",
+      "pronUs": "퍼제스",
+      "pronUk": null,
+      "ko": "~을 가지다, 소유하다",
+      "sourceId": 3,
+      "contexts": [
+        "...Possesses A Sensual And Soft-looking Body That Makes You Want To Embrace Her..."
+      ]
+    },
+    {
+      "id": 26,
+      "en": "sensual",
+      "pronUs": "센슈얼",
+      "pronUk": null,
+      "ko": "관능적인, 감각적인",
+      "sourceId": 3,
+      "contexts": [
+        "...Possesses A Sensual And Soft-looking Body..."
+      ]
+    },
+    {
+      "id": 27,
+      "en": "embrace",
+      "pronUs": "임브레이스",
+      "pronUk": null,
+      "ko": "~을 껴안다, 포옹하다",
+      "sourceId": 3,
+      "contexts": [
+        "...Makes You Want To Embrace Her..."
+      ]
+    },
+    {
+      "id": 28,
+      "en": "unconsciously",
+      "pronUs": "언컨셔슬리",
+      "pronUk": null,
+      "ko": "무의식적으로, 의식하지 못한 채",
+      "sourceId": 3,
+      "contexts": [
+        "...Unconsciously Seducing You."
+      ]
+    },
+    {
+      "id": 29,
+      "en": "seduce",
+      "pronUs": "시듀스",
+      "pronUk": null,
+      "ko": "~을 유혹하다, 꼬시다",
+      "sourceId": 3,
+      "contexts": [
+        "...Unconsciously Seducing You."
+      ]
     }
   ],
   "patterns": [
@@ -275,6 +346,33 @@
       "sourceId": 2,
       "examples": [
         "You wrote this work alone. How is that?"
+      ]
+    },
+    {
+      "id": 2,
+      "pattern": "make + O + V(원형)",
+      "ko": "O에게 ~하게 하다 (사역 표현)",
+      "sourceId": 3,
+      "examples": [
+        "The body makes you want to embrace her. / The news made me cry."
+      ]
+    },
+    {
+      "id": 3,
+      "pattern": "Noun, [Noun + V-ing], Verb...",
+      "ko": "명사 + 주격 독립 분사 구문 (주어의 부가 상태/배경 설명)",
+      "sourceId": 3,
+      "examples": [
+        "Her skin glistening with rain, she walked into the room. / The sun having set, we went home."
+      ]
+    },
+    {
+      "id": 4,
+      "pattern": "V-ing phrase (at the end of sentence)",
+      "ko": "문장 말미의 분사구문 (주어가 하는 동시 동작 또는 결과/방식 부사적 수식)",
+      "sourceId": 3,
+      "examples": [
+        "She sat by the window, reading a book. / He ran fast, winning the race."
       ]
     }
   ]
