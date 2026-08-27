@@ -15,6 +15,11 @@
       "id": 3,
       "name": "141",
       "createdUtc": "2026-08-26T09:03:16.709Z"
+    },
+    {
+      "id": 4,
+      "name": "그냥 단어",
+      "createdUtc": "2026-08-27T07:21:41.853Z"
     }
   ],
   "entries": [
@@ -335,6 +340,17 @@
       "sourceId": 3,
       "contexts": [
         "...Unconsciously Seducing You."
+      ]
+    },
+    {
+      "id": 30,
+      "en": "Repository",
+      "pronUs": "리파지토리",
+      "pronUk": null,
+      "ko": "저장소, 리포지터리",
+      "sourceId": 4,
+      "contexts": [
+        "Repository"
       ]
     }
   ],
