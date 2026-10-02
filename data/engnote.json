@@ -392,6 +392,39 @@
       "contexts": [
         "A One-night Stand Of adultery, Where We Devoured Each Other's Bodies."
       ]
+    },
+    {
+      "id": 34,
+      "en": "reassure",
+      "pronUs": "리어슈어",
+      "pronUk": null,
+      "ko": "안심시키다, 안도하게 하다",
+      "sourceId": 5,
+      "contexts": [
+        "The Prettiest Senior Woman In The Company Asked To A Junior Male Colleague If He Could Pretend To Be Her Boyfriend To reassure Her Parents Who Keep Nagging Her To Get Married As Soon As Possible."
+      ]
+    },
+    {
+      "id": 35,
+      "en": "nagging",
+      "pronUs": "내깅",
+      "pronUk": null,
+      "ko": "잔소리하는, 귀찮게 하는 (nag의 진행형)",
+      "sourceId": 5,
+      "contexts": [
+        "...To Reassure Her Parents Who Keep nagging Her To Get Married As Soon As Possible."
+      ]
+    },
+    {
+      "id": 36,
+      "en": "get off",
+      "pronUs": "겟 오프",
+      "pronUk": null,
+      "ko": "오르가즘에 도달하다, 성적 쾌감을 느끼다 (속어)",
+      "sourceId": 5,
+      "contexts": [
+        "She gets off So Many Times That She Ends Up Really Falling In Love With Him."
+      ]
     }
   ],
   "patterns": [
@@ -448,6 +481,33 @@
       "sourceId": 5,
       "examples": [
         "I Found Myself Alone With My Former Teacher, whom I had a crush on back then."
+      ]
+    },
+    {
+      "id": 7,
+      "pattern": "keep ~ing",
+      "ko": "계속 ~하다",
+      "sourceId": 5,
+      "examples": [
+        "Her parents who keep nagging her to get married."
+      ]
+    },
+    {
+      "id": 8,
+      "pattern": "end up ~ing",
+      "ko": "결국 ~하게 되다",
+      "sourceId": 5,
+      "examples": [
+        "She ends up having unprotected sex / She ends up really falling in love with him."
+      ]
+    },
+    {
+      "id": 9,
+      "pattern": "so ~ that ...",
+      "ko": "너무 ~해서 결국 ...하다",
+      "sourceId": 5,
+      "examples": [
+        "She gets off so many times that she ends up really falling in love with him."
       ]
     }
   ]
