@@ -370,6 +370,28 @@
         "A One-night Stand Of adultery, Where We Devoured Each Other's Bodies.",
         "A One-night Stand Of Adultery, Where We devoured Each Other's Bodies."
       ]
+    },
+    {
+      "id": 32,
+      "en": "affair",
+      "pronUs": "어페어",
+      "pronUk": null,
+      "ko": "연애 관계, 불륜, 스캔들",
+      "sourceId": 5,
+      "contexts": [
+        "A Class Reunion affair: Missing The Last Train, I Found Myself Alone With My Former Teacher, Whom I Had A Crush On Back Then."
+      ]
+    },
+    {
+      "id": 33,
+      "en": "adultery",
+      "pronUs": "어덜터리",
+      "pronUk": null,
+      "ko": "간통, 불륜",
+      "sourceId": 5,
+      "contexts": [
+        "A One-night Stand Of adultery, Where We Devoured Each Other's Bodies."
+      ]
     }
   ],
   "patterns": [
@@ -417,6 +439,15 @@
       "examples": [
         "I Found Myself Alone With My Former Teacher, whom I had a crush on back then.",
         "I had a crush on my former teacher back then."
+      ]
+    },
+    {
+      "id": 6,
+      "pattern": "whom I had a crush on",
+      "ko": "내가 예전에 짝사랑했던 (사람)",
+      "sourceId": 5,
+      "examples": [
+        "I Found Myself Alone With My Former Teacher, whom I had a crush on back then."
       ]
     }
   ]
