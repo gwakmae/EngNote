@@ -25,6 +25,11 @@
       "id": 5,
       "name": "AV",
       "createdUtc": "2026-10-02T05:07:47.107Z"
+    },
+    {
+      "id": 6,
+      "name": "설교ㅛ",
+      "createdUtc": "2026-10-04T04:46:58.236Z"
     }
   ],
   "entries": [
@@ -425,6 +430,50 @@
       "contexts": [
         "She gets off So Many Times That She Ends Up Really Falling In Love With Him."
       ]
+    },
+    {
+      "id": 37,
+      "en": "sheep",
+      "pronUs": "쉽",
+      "pronUk": null,
+      "ko": "양 (단수/복수 동형)",
+      "sourceId": 6,
+      "contexts": [
+        "Behold, I send you out as sheep in the midst of wolves. Therefore be wise as serpents and harmless as doves."
+      ]
+    },
+    {
+      "id": 38,
+      "en": "midst",
+      "pronUs": "미드스트",
+      "pronUk": null,
+      "ko": "한가운데, 중간",
+      "sourceId": 6,
+      "contexts": [
+        "Behold, I send you out as sheep in the midst of wolves. Therefore be wise as serpents and harmless as doves."
+      ]
+    },
+    {
+      "id": 39,
+      "en": "serpents",
+      "pronUs": "서펀츠",
+      "pronUk": null,
+      "ko": "뱀들 (문어체, 지혜의 상징)",
+      "sourceId": 6,
+      "contexts": [
+        "Behold, I send you out as sheep in the midst of wolves. Therefore be wise as serpents and harmless as doves."
+      ]
+    },
+    {
+      "id": 40,
+      "en": "doves",
+      "pronUs": "더브즈",
+      "pronUk": null,
+      "ko": "비둘기들 (평화, 순결의 상징)",
+      "sourceId": 6,
+      "contexts": [
+        "Behold, I send you out as sheep in the midst of wolves. Therefore be wise as serpents and harmless as doves."
+      ]
     }
   ],
   "patterns": [
@@ -508,6 +557,15 @@
       "sourceId": 5,
       "examples": [
         "She gets off so many times that she ends up really falling in love with him."
+      ]
+    },
+    {
+      "id": 10,
+      "pattern": "Behold, I send you out as ~",
+      "ko": "보라, 내가 너희를 ~로 보내노니 (문어체/성경적 강조 표현)",
+      "sourceId": 6,
+      "examples": [
+        "Behold, I send you out as sheep in the midst of wolves."
       ]
     }
   ]
