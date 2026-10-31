@@ -485,10 +485,21 @@
       "en": "hype",
       "pronUs": "하입",
       "pronUk": null,
-      "ko": "과대광고, 뜬소문",
+      "ko": "과대광고, 뜬소문; 과대광고, 허세, 근거 없는 과도한 기대",
       "sourceId": 7,
       "contexts": [
         "Consistency over hype."
+      ]
+    },
+    {
+      "id": 42,
+      "en": "volatility",
+      "pronUs": "ˌvɑːləˈtɪləti",
+      "pronUk": null,
+      "ko": "변동성",
+      "sourceId": 7,
+      "contexts": [
+        "A week driven by strong volatility in gold, allowing us to capture multiple precise entries throughout the sessions."
       ]
     }
   ],
@@ -592,6 +603,24 @@
       "examples": [
         "A week driven by strong volatility in gold.",
         "Consistency over hype."
+      ]
+    },
+    {
+      "id": 12,
+      "pattern": "~ driven by ~, allowing ~ to ~",
+      "ko": "~에 의해 주도되어, 그 결과 ~가 ~할 수 있게 해주다 (과거분사구와 현재분사구를 연달아 사용해 원인과 결과를 간결하게 연결)",
+      "sourceId": 7,
+      "examples": [
+        "A week driven by strong volatility in gold, allowing us to capture multiple precise entries throughout the sessions."
+      ]
+    },
+    {
+      "id": 13,
+      "pattern": "A over B",
+      "ko": "B보다 A가 우선이다, B보다 A가 중요하다",
+      "sourceId": 7,
+      "examples": [
+        "Consistency over hype. Results over noise."
       ]
     }
   ]
