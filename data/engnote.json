@@ -30,6 +30,11 @@
       "id": 6,
       "name": "설교ㅛ",
       "createdUtc": "2026-10-04T04:46:58.236Z"
+    },
+    {
+      "id": 7,
+      "name": "텔레그램신호방",
+      "createdUtc": "2026-10-31T16:20:57.688Z"
     }
   ],
   "entries": [
@@ -474,6 +479,17 @@
       "contexts": [
         "Behold, I send you out as sheep in the midst of wolves. Therefore be wise as serpents and harmless as doves."
       ]
+    },
+    {
+      "id": 41,
+      "en": "hype",
+      "pronUs": "하입",
+      "pronUk": null,
+      "ko": "과대광고, 뜬소문",
+      "sourceId": 7,
+      "contexts": [
+        "Consistency over hype."
+      ]
     }
   ],
   "patterns": [
@@ -566,6 +582,16 @@
       "sourceId": 6,
       "examples": [
         "Behold, I send you out as sheep in the midst of wolves."
+      ]
+    },
+    {
+      "id": 11,
+      "pattern": "~ over ...",
+      "ko": "...보다 (차라리) ~",
+      "sourceId": 7,
+      "examples": [
+        "A week driven by strong volatility in gold.",
+        "Consistency over hype."
       ]
     }
   ]
