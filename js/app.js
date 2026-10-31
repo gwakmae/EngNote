@@ -2,14 +2,19 @@
 
 // 앱 진입점 — 탭 전환, 헤더, 동기화 배지, 토스트, 공용 출처 관리 모달, 최초 로딩
 const App = (() => {
-  const views = { words: WordView, patterns: PatternView, import: ImportView, settings: SettingsView };
-  const SPLIT_VIEWS = new Set(['words', 'patterns']);  // 프롬프트 열 + 목록 열 구조
+  const views = {
+    notebook: NoteView,
+    import: ImportView,
+    settings: SettingsView
+  };
+  const SPLIT_VIEWS = new Set();
   let currentView = null;
 
   const $ = sel => document.querySelector(sel);
 
   function switchView(name) {
     if (!views[name]) return;
+    NoteView.closeDialogs();
     currentView = name;
 
     document.querySelectorAll('.nav-button').forEach(b =>
@@ -23,6 +28,13 @@ const App = (() => {
     main.appendChild(section);
 
     views[name].render(section);
+
+    if (name !== 'notebook') {
+      setHeader(
+        `단어·표현 ${Data.state.entries.length.toLocaleString()}개 · ` +
+        `패턴 ${Data.state.patterns.length.toLocaleString()}개`
+      );
+    }
   }
 
   function setHeader(text) {
@@ -31,13 +43,24 @@ const App = (() => {
 
   function setSyncDirty() {
     const badge = $('#sync-badge');
-    badge.className = 'sync-badge dirty';
-    badge.textContent = '● 저장 안 됨';
+    const localOk = Data.hasLocalBackup();
+
+    badge.className = 'sync-badge ' + (localOk ? 'dirty' : 'error');
+    badge.textContent = localOk ? '● GitHub 미저장' : '⚠ 임시 저장 실패';
+    badge.title = localOk
+      ? '변경 내용은 이 브라우저에 임시 저장되었습니다. GitHub 저장은 별도입니다.'
+      : '브라우저 임시 저장에 실패했습니다. 페이지를 닫기 전에 GitHub 저장 또는 JSON 백업을 해주세요.';
   }
   function setSyncClean() {
+    if (Data.isDirty()) {
+      setSyncDirty();
+      return;
+    }
+
     const badge = $('#sync-badge');
     badge.className = 'sync-badge ok';
     badge.textContent = '✓ 저장됨';
+    badge.title = '현재 변경 내용이 모두 저장되었습니다.';
   }
   function setSyncError(msg) {
     const badge = $('#sync-badge');
@@ -78,12 +101,15 @@ const App = (() => {
 
     // 항목 수는 단어 + 패턴 합산
     function countBySource() {
-      const countBy = new Map();
-      for (const e of Data.state.entries)
-        if (e.sourceId != null) countBy.set(e.sourceId, (countBy.get(e.sourceId) || 0) + 1);
-      for (const p of Data.state.patterns)
-        if (p.sourceId != null) countBy.set(p.sourceId, (countBy.get(p.sourceId) || 0) + 1);
-      return countBy;
+      const counts = new Map();
+
+      for (const item of [...Data.state.entries, ...Data.state.patterns]) {
+        for (const id of Data.getSourceIds(item)) {
+          counts.set(id, (counts.get(id) || 0) + 1);
+        }
+      }
+
+      return counts;
     }
 
     // ── 병합 모드 상태 ──
@@ -216,11 +242,14 @@ const App = (() => {
         return;
       }
 
+      const hadSelectedSource = picked.some(id => checkedIds.has(id));
       const moved = Merger.mergeSources(targetId, picked, newName);
 
-      // 필터에 사라진 출처가 남아 있으면 정리
       for (const id of picked) {
-        if (id !== targetId) checkedIds.delete(id);
+        checkedIds.delete(id);
+      }
+      if (hadSelectedSource) {
+        checkedIds.add(targetId);
       }
 
       setSyncDirty();
@@ -247,29 +276,50 @@ const App = (() => {
   }
 
   async function boot() {
-    document.querySelectorAll('.nav-button').forEach(b =>
-      b.addEventListener('click', () => switchView(b.dataset.view)));
+    const navButtons = [...document.querySelectorAll('.nav-button')];
 
-    // 브랜드(EngNote) 클릭 → 단어 탭으로
-    document.querySelector('.brand').addEventListener('click', () => switchView('words'));
-
-    // 저장 안 된 채 페이지를 떠나려 하면 경고
-    window.addEventListener('beforeunload', e => {
-      if (Data.isDirty()) { e.preventDefault(); e.returnValue = ''; }
+    navButtons.forEach(button => {
+      button.disabled = true;
+      button.addEventListener('click', () => switchView(button.dataset.view));
     });
 
-    switchView('words');
+    let ready = false;
+
+    document.querySelector('.brand').addEventListener('click', () => {
+      if (ready) switchView('notebook');
+    });
+
+    window.addEventListener('beforeunload', event => {
+      if (Data.isDirty()) {
+        event.preventDefault();
+        event.returnValue = '';
+      }
+    });
+
+    $('#main-view').innerHTML = '<div class="note-empty">학습 노트를 불러오는 중입니다.</div>';
 
     try {
-      await Data.load();
-      WordView.refresh();
-      setSyncClean();
-    } catch (err) {
-      // 첫 실행 등으로 파일이 없으면 빈 상태로 시작
-      console.warn(err);
-      WordView.refresh();
-      setSyncError('데이터 없음');
-      toast('data/engnote.json을 찾지 못해 빈 상태로 시작합니다.', true);
+      const info = await Data.load();
+      switchView('notebook');
+
+      if (Data.isDirty()) {
+        setSyncDirty();
+        toast('브라우저에 임시 저장된 변경 내용을 복구했습니다.');
+      } else {
+        setSyncClean();
+      }
+
+      if (info.warning) toast(info.warning, true);
+    } catch (error) {
+      console.error(error);
+      switchView('notebook');
+      setSyncError('불러오기 실패');
+      toast('데이터 불러오기 실패: ' + error.message, true);
+    } finally {
+      ready = true;
+      navButtons.forEach(button => {
+        button.disabled = false;
+      });
     }
   }
 

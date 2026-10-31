@@ -68,6 +68,7 @@ const ImportView = (() => {
 
   function showResult(msg, isError = false) {
     const box = $('#import-result');
+    if (!box) return;
     box.style.display = 'block';
     box.style.borderColor = isError ? 'var(--danger)' : 'var(--line)';
     box.textContent = msg;
@@ -80,10 +81,11 @@ const ImportView = (() => {
 
   async function doImport() {
     const btn = $('#btn-do-import');
+    const inputEl = $('#import-text');
     btn.disabled = true;
 
     try {
-      const text = $('#import-text').value;
+      const text = inputEl.value;
       const words = Parser.parseWords(text);       // @@APP-DATA@@ (fallback 포함)
       const patterns = Parser.parsePatterns(text); // @@PATTERN-DATA@@ (마커 필수)
 
@@ -107,8 +109,7 @@ const ImportView = (() => {
       const w = Merger.importWords(words, source);
       const p = Merger.importPatterns(patterns, source);
       App.setSyncDirty();
-      WordView.refresh();
-      PatternView.refresh();
+      NoteView.refresh();
 
       const lines = [`출처: ${source.name}`, ''];
       if (words.length > 0)
@@ -119,10 +120,19 @@ const ImportView = (() => {
 
       // 2) GitHub에 즉시 저장
       if (!hasGitHubSettings()) {
-        showResult(summary +
-          `\n\n⚠ GitHub 설정이 없어 이 브라우저 메모리에만 반영됐습니다.` +
-          `\n설정 탭에서 Owner / Repo / Token을 입력하면 다음부터 자동 저장됩니다.`, true);
-        App.toast('가져오기 완료 (로컬만)');
+        const localMessage = Data.hasLocalBackup()
+          ? '이 브라우저에 임시 저장되었습니다. 새로고침 후에도 복구됩니다.'
+          : '브라우저 임시 저장에 실패했습니다. 페이지를 닫기 전에 JSON 백업을 다운로드해 주세요.';
+
+        showResult(
+          summary +
+          '\n\n⚠ GitHub 설정이 없습니다.\n' +
+          localMessage +
+          '\n설정 탭에서 Owner / Repo / Token을 저장한 뒤 [GitHub에 지금 저장]을 눌러 주세요.',
+          true
+        );
+
+        App.toast('가져오기 완료 · GitHub 미저장');
         return;
       }
 
@@ -130,14 +140,30 @@ const ImportView = (() => {
       try {
         await Data.save();
         App.setSyncClean();
-        showResult(summary + `\n\n✓ GitHub에 저장 완료`);
-        App.toast('가져오기 + 저장 완료');
-        $('#import-text').value = '';
+
+        const remainingMessage = Data.isDirty()
+          ? '\n\n✓ GitHub 저장 완료\n저장 중 추가된 변경은 아직 GitHub에 저장되지 않았습니다.'
+          : '\n\n✓ GitHub에 저장 완료';
+
+        showResult(summary + remainingMessage);
+        App.toast(Data.isDirty() ? '저장 완료 · 추가 변경 있음' : '가져오기 + 저장 완료');
+        inputEl.value = '';
       } catch (err) {
         console.error(err);
-        showResult(summary +
-          `\n\n✗ GitHub 저장 실패: ${err.message}` +
-          `\n\n데이터는 메모리에 살아 있습니다. 설정 탭의 [⬆ GitHub에 지금 저장]으로 다시 시도하세요.`, true);
+
+        const recoveryMessage = Data.hasLocalBackup()
+          ? '등록 내용은 브라우저에 임시 저장되어 있습니다.'
+          : '브라우저 임시 저장도 확인되지 않았습니다. 페이지를 닫기 전에 JSON 백업을 해주세요.';
+
+        showResult(
+          summary +
+          '\n\n✗ GitHub 저장 실패: ' + err.message +
+          '\n\n' + recoveryMessage +
+          '\n설정 탭의 [⬆ GitHub에 지금 저장]으로 다시 시도하세요.',
+          true
+        );
+
+        App.setSyncDirty();
         App.toast('등록됐지만 GitHub 저장 실패', true);
       }
     } catch (err) {

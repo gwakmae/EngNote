@@ -17,107 +17,172 @@ const Merger = (() => {
     return source;
   }
 
+  function attachSource(item, source) {
+    const previousIds = Data.getSourceIds(item);
+    const nextIds = [...previousIds];
+
+    if (source && !nextIds.includes(source.id)) {
+      nextIds.push(source.id);
+    }
+
+    item.sourceIds = nextIds;
+
+    if (item.sourceId == null && nextIds.length > 0) {
+      item.sourceId = nextIds[0];
+    }
+
+    return nextIds.length !== previousIds.length;
+  }
+
   // parsed: [{ en, pronUs, pronUk, ko, contexts: [] }]
   function importWords(parsed, source) {
     const entries = Data.state.entries;
-    let added = 0, merged = 0, skipped = 0;
+    let added = 0;
+    let merged = 0;
+    let skipped = 0;
+
+    if (!parsed.length) return { added, merged, skipped };
+
     ensureSource(source);
 
-    const byKey = new Map();
-    for (const e of entries) byKey.set(Parser.normalizeKey(e.en), e);
+    const byKey = new Map(
+      entries.map(entry => [Parser.normalizeKey(entry.en), entry])
+    );
 
-    for (const p of parsed) {
-      const key = Parser.normalizeKey(p.en);
+    for (const item of parsed) {
+      const key = Parser.normalizeKey(item.en);
       const target = byKey.get(key);
+      const now = new Date().toISOString();
 
       if (!target) {
         const entry = {
           id: Data.nextId(entries),
-          en: p.en,
-          pronUs: p.pronUs || '',
-          pronUk: p.pronUk ?? null,
-          ko: p.ko || '',
+          en: item.en,
+          pronUs: item.pronUs || '',
+          pronUk: item.pronUk ?? null,
+          ko: item.ko || '',
           sourceId: source ? source.id : null,
-          contexts: [...(p.contexts || [])]
+          sourceIds: source ? [source.id] : [],
+          contexts: [...new Set(item.contexts || [])],
+          createdUtc: now,
+          updatedUtc: now
         };
+
         entries.push(entry);
         byKey.set(key, entry);
         added++;
         continue;
       }
 
-      // 기존 단어: 맥락 병합 (출처는 최초 등록 출처 유지)
-      let changed = false;
+      let changed = attachSource(target, source);
+      target.contexts = target.contexts || [];
 
-      for (const c of (p.contexts || [])) {
-        const dup = target.contexts.some(tc => normalizeText(tc) === normalizeText(c));
-        if (dup) { skipped++; continue; }
-        target.contexts.push(c);
+      for (const context of item.contexts || []) {
+        const duplicate = target.contexts.some(
+          existing => normalizeText(existing) === normalizeText(context)
+        );
+
+        if (duplicate) continue;
+
+        target.contexts.push(context);
         changed = true;
       }
-      if (p.ko && !target.ko.toLowerCase().includes(p.ko.toLowerCase())) {
-        target.ko = target.ko ? target.ko + '; ' + p.ko : p.ko;
+
+      if (item.ko && !(target.ko || '').toLowerCase().includes(item.ko.toLowerCase())) {
+        target.ko = target.ko ? target.ko + '; ' + item.ko : item.ko;
         changed = true;
       }
-      if (!target.pronUs && p.pronUs) {
-        target.pronUs = p.pronUs;
+
+      if (!target.pronUs && item.pronUs) {
+        target.pronUs = item.pronUs;
         changed = true;
       }
-      if (target.pronUk == null && p.pronUk != null) {
-        target.pronUk = p.pronUk;
+
+      if (target.pronUk == null && item.pronUk != null) {
+        target.pronUk = item.pronUk;
         changed = true;
       }
-      if (changed) merged++;
+
+      if (changed) {
+        target.updatedUtc = now;
+        merged++;
+      } else {
+        skipped++;
+      }
     }
 
     if (added + merged > 0) Data.markDirty();
+
     return { added, merged, skipped };
   }
 
   // parsed: [{ pattern, ko, examples: [] }]
   function importPatterns(parsed, source) {
     const patterns = Data.state.patterns;
-    let added = 0, merged = 0, skipped = 0;
+    let added = 0;
+    let merged = 0;
+    let skipped = 0;
+
+    if (!parsed.length) return { added, merged, skipped };
+
     ensureSource(source);
 
-    const byKey = new Map();
-    for (const p of patterns) byKey.set(Parser.normalizeKey(p.pattern), p);
+    const byKey = new Map(
+      patterns.map(pattern => [Parser.normalizeKey(pattern.pattern), pattern])
+    );
 
-    for (const p of parsed) {
-      const key = Parser.normalizeKey(p.pattern);
+    for (const item of parsed) {
+      const key = Parser.normalizeKey(item.pattern);
       const target = byKey.get(key);
+      const now = new Date().toISOString();
 
       if (!target) {
         const entry = {
           id: Data.nextId(patterns),
-          pattern: p.pattern,
-          ko: p.ko || '',
+          pattern: item.pattern,
+          ko: item.ko || '',
           sourceId: source ? source.id : null,
-          examples: [...(p.examples || [])]
+          sourceIds: source ? [source.id] : [],
+          examples: [...new Set(item.examples || [])],
+          createdUtc: now,
+          updatedUtc: now
         };
+
         patterns.push(entry);
         byKey.set(key, entry);
         added++;
         continue;
       }
 
-      // 기존 패턴: 예문 병합
-      let changed = false;
+      let changed = attachSource(target, source);
+      target.examples = target.examples || [];
 
-      for (const ex of (p.examples || [])) {
-        const dup = target.examples.some(te => normalizeText(te) === normalizeText(ex));
-        if (dup) { skipped++; continue; }
-        target.examples.push(ex);
+      for (const example of item.examples || []) {
+        const duplicate = target.examples.some(
+          existing => normalizeText(existing) === normalizeText(example)
+        );
+
+        if (duplicate) continue;
+
+        target.examples.push(example);
         changed = true;
       }
-      if (p.ko && !target.ko.toLowerCase().includes(p.ko.toLowerCase())) {
-        target.ko = target.ko ? target.ko + '; ' + p.ko : p.ko;
+
+      if (item.ko && !(target.ko || '').toLowerCase().includes(item.ko.toLowerCase())) {
+        target.ko = target.ko ? target.ko + '; ' + item.ko : item.ko;
         changed = true;
       }
-      if (changed) merged++;
+
+      if (changed) {
+        target.updatedUtc = now;
+        merged++;
+      } else {
+        skipped++;
+      }
     }
 
     if (added + merged > 0) Data.markDirty();
+
     return { added, merged, skipped };
   }
 
@@ -126,30 +191,39 @@ const Merger = (() => {
   // 옮겨진 출처들은 삭제한다. newName이 있으면 대상 출처 이름도 바꾼다.
   // 반환: 옮겨진 항목 수 (단어 + 패턴)
   function mergeSources(targetId, sourceIds, newName) {
-    const target = Data.state.sources.find(s => s.id === targetId);
+    const target = Data.state.sources.find(source => source.id === targetId);
     if (!target) return 0;
 
-    const moving = sourceIds.filter(id => id !== targetId);
-    if (moving.length === 0) return 0;
+    const moving = new Set(sourceIds.filter(id => id !== targetId));
+    if (!moving.size) return 0;
 
-    if (newName && newName.trim())
+    if (newName && newName.trim()) {
       target.name = newName.trim();
+    }
 
     let moved = 0;
-    for (const e of Data.state.entries) {
-      if (moving.includes(e.sourceId)) {
-        e.sourceId = targetId;
-        moved++;
+
+    for (const item of [...Data.state.entries, ...Data.state.patterns]) {
+      const ids = Data.getSourceIds(item);
+      if (!ids.some(id => moving.has(id))) continue;
+
+      item.sourceIds = [...new Set(
+        ids.map(id => moving.has(id) ? targetId : id)
+      )];
+
+      if (moving.has(item.sourceId)) {
+        item.sourceId = targetId;
+      } else if (item.sourceId == null) {
+        item.sourceId = item.sourceIds[0] ?? null;
       }
-    }
-    for (const p of Data.state.patterns) {
-      if (moving.includes(p.sourceId)) {
-        p.sourceId = targetId;
-        moved++;
-      }
+
+      moved++;
     }
 
-    Data.state.sources = Data.state.sources.filter(s => !moving.includes(s.id));
+    Data.state.sources = Data.state.sources.filter(
+      source => !moving.has(source.id)
+    );
+
     Data.markDirty();
     return moved;
   }

@@ -43,35 +43,81 @@ const SettingsView = (() => {
     `;
 
     $('#btn-save-settings').addEventListener('click', () => {
-      Data.saveSettings({
-        owner: $('#gh-owner').value.trim(),
-        repo: $('#gh-repo').value.trim(),
-        branch: $('#gh-branch').value.trim() || 'main',
-        path: $('#gh-path').value.trim() || 'data/engnote.json',
-        token: $('#gh-token').value.trim()
-      });
-      showResult('설정을 저장했습니다.');
-    });
-
-    $('#btn-reload').addEventListener('click', async () => {
       try {
-        const info = await Data.load();
-        WordView.refresh();
-        PatternView.refresh();
-        App.setSyncClean();
-        showResult(`불러오기 완료 (${info.from === 'github' ? 'GitHub' : '정적 파일'}): 단어 ${Data.state.entries.length}개, 패턴 ${Data.state.patterns.length}개, 출처 ${Data.state.sources.length}개`);
-      } catch (e) {
-        showResult('불러오기 실패: ' + e.message, true);
+        Data.saveSettings({
+          owner: $('#gh-owner').value.trim(),
+          repo: $('#gh-repo').value.trim(),
+          branch: $('#gh-branch').value.trim() || 'main',
+          path: $('#gh-path').value.trim() || 'data/engnote.json',
+          token: $('#gh-token').value.trim()
+        });
+
+        if (Data.isDirty()) App.setSyncDirty();
+
+        showResult(
+          '설정을 저장했습니다.\n' +
+          '현재 변경 내용을 GitHub에 반영하려면 [⬆ GitHub에 지금 저장]을 눌러 주세요.'
+        );
+      } catch (error) {
+        showResult('설정 저장 실패: ' + error.message, true);
       }
     });
 
-    $('#btn-push').addEventListener('click', async () => {
+    $('#btn-reload').addEventListener('click', async event => {
+      if (
+        Data.isDirty() &&
+        !confirm(
+          'GitHub에 저장되지 않은 변경 내용이 있습니다.\n' +
+          '다시 불러오기에 성공하면 현재 변경과 브라우저 임시 데이터를 버립니다.\n' +
+          '필요하면 먼저 JSON 백업을 다운로드하세요. 계속할까요?'
+        )
+      ) {
+        return;
+      }
+
+      const button = event.currentTarget;
+      button.disabled = true;
+
+      try {
+        const info = await Data.load({ ignoreDraft: true });
+
+        NoteView.refresh();
+        App.setSyncClean();
+
+        const sourceName = info.from === 'github' ? 'GitHub' : '정적 파일';
+
+        showResult(
+          `불러오기 완료 (${sourceName}): ` +
+          `단어·표현 ${Data.state.entries.length}개, ` +
+          `패턴 ${Data.state.patterns.length}개, ` +
+          `출처 ${Data.state.sources.length}개` +
+          (info.warning ? '\n\n⚠ ' + info.warning : '')
+        );
+      } catch (error) {
+        showResult('불러오기 실패: ' + error.message, true);
+      } finally {
+        button.disabled = false;
+      }
+    });
+
+    $('#btn-push').addEventListener('click', async event => {
+      const button = event.currentTarget;
+      button.disabled = true;
+
       try {
         await Data.save();
         App.setSyncClean();
-        showResult('GitHub에 저장했습니다. GitHub Pages라면 1~2분 뒤 배포에 반영됩니다.');
-      } catch (e) {
-        showResult('저장 실패: ' + e.message, true);
+
+        showResult(
+          Data.isDirty()
+            ? 'GitHub 저장은 완료했습니다. 저장 중 추가된 변경이 있으므로 한 번 더 저장해 주세요.'
+            : 'GitHub에 저장했습니다.'
+        );
+      } catch (error) {
+        if (Data.isDirty()) App.setSyncDirty();
+        showResult('저장 실패: ' + error.message, true);
+      } finally {
+        button.disabled = false;
       }
     });
 
@@ -84,8 +130,7 @@ const SettingsView = (() => {
       try {
         await Data.importJson(file);
         App.setSyncDirty();
-        WordView.refresh();
-        PatternView.refresh();
+        NoteView.refresh();
         showResult(`복원 완료: 단어 ${Data.state.entries.length}개, 패턴 ${Data.state.patterns.length}개. GitHub에 저장하려면 위 [지금 저장]을 누르세요.`);
       } catch (err) {
         showResult('복원 실패: ' + err.message, true);
@@ -96,6 +141,7 @@ const SettingsView = (() => {
 
   function showResult(msg, isError = false) {
     const box = $('#settings-result');
+    if (!box) return;
     box.style.display = 'block';
     box.style.borderColor = isError ? 'var(--danger)' : 'var(--line)';
     box.textContent = msg;
