@@ -691,6 +691,54 @@
       ],
       "createdUtc": "2026-11-01T07:42:06.913Z",
       "updatedUtc": "2026-11-01T07:42:06.913Z"
+    },
+    {
+      "id": 47,
+      "en": "stay grounded",
+      "pronUs": "스테이 그라운디드",
+      "pronUk": null,
+      "ko": "현실 감각과 자기 중심을 잃지 않다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "stay grounded, this one deserves the spotlight."
+      ],
+      "createdUtc": "2026-11-01T07:42:43.600Z",
+      "updatedUtc": "2026-11-01T07:42:43.600Z"
+    },
+    {
+      "id": 48,
+      "en": "deserve",
+      "pronUs": "디저브",
+      "pronUk": null,
+      "ko": "~을 받을 만하다, ~할 자격이 있다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "stay grounded, this one deserves the spotlight."
+      ],
+      "createdUtc": "2026-11-01T07:42:43.600Z",
+      "updatedUtc": "2026-11-01T07:42:43.600Z"
+    },
+    {
+      "id": 49,
+      "en": "the spotlight",
+      "pronUs": "더 스팟라이트",
+      "pronUk": null,
+      "ko": "사람들의 집중적인 관심과 주목",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "stay grounded, this one deserves the spotlight."
+      ],
+      "createdUtc": "2026-11-01T07:42:43.600Z",
+      "updatedUtc": "2026-11-01T07:42:43.600Z"
     }
   ],
   "patterns": [
@@ -879,6 +927,34 @@
       ],
       "createdUtc": "2026-11-01T07:42:06.913Z",
       "updatedUtc": "2026-11-01T07:42:06.913Z"
+    },
+    {
+      "id": 16,
+      "pattern": "stay ~",
+      "ko": "~한 상태를 유지하다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "Stay grounded, this one deserves the spotlight."
+      ],
+      "createdUtc": "2026-11-01T07:42:43.600Z",
+      "updatedUtc": "2026-11-01T07:42:43.600Z"
+    },
+    {
+      "id": 17,
+      "pattern": "주어 + deserve + 명사",
+      "ko": "주어가 ~을 받을 만하다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "Stay grounded, this one deserves the spotlight."
+      ],
+      "createdUtc": "2026-11-01T07:42:43.600Z",
+      "updatedUtc": "2026-11-01T07:42:43.600Z"
     }
   ]
 }
