@@ -787,6 +787,70 @@
       ],
       "createdUtc": "2026-11-01T07:51:04.159Z",
       "updatedUtc": "2026-11-01T07:51:04.159Z"
+    },
+    {
+      "id": 54,
+      "en": "remain",
+      "pronUs": "리메인",
+      "pronUk": null,
+      "ko": "계속 ~한 상태로 머물다, 유지되다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "The price remains below both downward-sloping Moving Averages (MA), indicating that sellers continue to control the trend."
+      ],
+      "createdUtc": "2026-11-01T07:55:02.964Z",
+      "updatedUtc": "2026-11-01T07:55:02.964Z"
+    },
+    {
+      "id": 55,
+      "en": "downward-sloping",
+      "pronUs": "다운워드 슬로우핑",
+      "pronUk": null,
+      "ko": "하향 기울기의, 아래쪽으로 기울어진",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "The price remains below both downward-sloping Moving Averages (MA), indicating that sellers continue to control the trend."
+      ],
+      "createdUtc": "2026-11-01T07:55:02.964Z",
+      "updatedUtc": "2026-11-01T07:55:02.964Z"
+    },
+    {
+      "id": 56,
+      "en": "indicate",
+      "pronUs": "인디케이트",
+      "pronUk": null,
+      "ko": "~을 나타내다, 보여 주다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "The price remains below both downward-sloping Moving Averages (MA), indicating that sellers continue to control the trend."
+      ],
+      "createdUtc": "2026-11-01T07:55:02.964Z",
+      "updatedUtc": "2026-11-01T07:55:02.964Z"
+    },
+    {
+      "id": 57,
+      "en": "continue to control",
+      "pronUs": "컨티뉴 투 컨트롤",
+      "pronUk": null,
+      "ko": "계속해서 주도하다, 통제하다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "The price remains below both downward-sloping Moving Averages (MA), indicating that sellers continue to control the trend."
+      ],
+      "createdUtc": "2026-11-01T07:55:02.964Z",
+      "updatedUtc": "2026-11-01T07:55:02.964Z"
     }
   ],
   "patterns": [
@@ -1031,6 +1095,48 @@
       ],
       "createdUtc": "2026-11-01T07:51:04.159Z",
       "updatedUtc": "2026-11-01T07:51:04.159Z"
+    },
+    {
+      "id": 21,
+      "pattern": "remain below ~",
+      "ko": "~의 아래에 계속 머물러 있다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "The price remains below both downward-sloping Moving Averages (MA), indicating that sellers continue to control the trend."
+      ],
+      "createdUtc": "2026-11-01T07:55:02.965Z",
+      "updatedUtc": "2026-11-01T07:55:02.965Z"
+    },
+    {
+      "id": 22,
+      "pattern": "indicating that ~",
+      "ko": "이는 ~라는 것을 나타내며",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "The price remains below both downward-sloping Moving Averages (MA), indicating that sellers continue to control the trend."
+      ],
+      "createdUtc": "2026-11-01T07:55:02.965Z",
+      "updatedUtc": "2026-11-01T07:55:02.965Z"
+    },
+    {
+      "id": 23,
+      "pattern": "continue to + 동사원형",
+      "ko": "계속해서 ~하다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "The price remains below both downward-sloping Moving Averages (MA), indicating that sellers continue to control the trend."
+      ],
+      "createdUtc": "2026-11-01T07:55:02.965Z",
+      "updatedUtc": "2026-11-01T07:55:02.965Z"
     }
   ]
 }
