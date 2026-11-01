@@ -677,22 +677,6 @@
       "updatedUtc": "2026-10-31T16:47:47.222Z"
     },
     {
-      "id": 46,
-      "en": "the spotlight\\",
-      "pronUs": "더 스팟라이트\\",
-      "pronUk": null,
-      "ko": "사람들의 집중적인 관심과 주목\\",
-      "sourceId": 7,
-      "sourceIds": [
-        7
-      ],
-      "contexts": [
-        "stay grounded, this one deserves the spotlight.\\"
-      ],
-      "createdUtc": "2026-11-01T07:42:06.913Z",
-      "updatedUtc": "2026-11-01T07:42:06.913Z"
-    },
-    {
       "id": 47,
       "en": "stay grounded",
       "pronUs": "스테이 그라운디드",
@@ -739,6 +723,70 @@
       ],
       "createdUtc": "2026-11-01T07:42:43.600Z",
       "updatedUtc": "2026-11-01T07:42:43.600Z"
+    },
+    {
+      "id": 50,
+      "en": "dominant",
+      "pronUs": "다머넌트",
+      "pronUk": null,
+      "ko": "우세한, 시장을 주도하는",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Bearish Market Structure: The downtrend remains dominant, characterized by a sequence of Lower Highs (LH) and Lower Lows (LL), alongside multiple consecutive bearish Break of Structure (BOS) signals."
+      ],
+      "createdUtc": "2026-11-01T07:51:04.159Z",
+      "updatedUtc": "2026-11-01T07:51:04.159Z"
+    },
+    {
+      "id": 51,
+      "en": "characterize",
+      "pronUs": "캐릭터라이즈",
+      "pronUk": null,
+      "ko": "~을 특징으로 하다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Bearish Market Structure: The downtrend remains dominant, characterized by a sequence of Lower Highs (LH) and Lower Lows (LL), alongside multiple consecutive bearish Break of Structure (BOS) signals."
+      ],
+      "createdUtc": "2026-11-01T07:51:04.159Z",
+      "updatedUtc": "2026-11-01T07:51:04.159Z"
+    },
+    {
+      "id": 52,
+      "en": "consecutive",
+      "pronUs": "컨세큐티브",
+      "pronUk": null,
+      "ko": "연속적인, 잇따른",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Bearish Market Structure: The downtrend remains dominant, characterized by a sequence of Lower Highs (LH) and Lower Lows (LL), alongside multiple consecutive bearish Break of Structure (BOS) signals."
+      ],
+      "createdUtc": "2026-11-01T07:51:04.159Z",
+      "updatedUtc": "2026-11-01T07:51:04.159Z"
+    },
+    {
+      "id": 53,
+      "en": "bearish",
+      "pronUs": "베어리시",
+      "pronUk": null,
+      "ko": "하락세의, 약세의",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Bearish Market Structure: The downtrend remains dominant, characterized by a sequence of Lower Highs (LH) and Lower Lows (LL), alongside multiple consecutive bearish Break of Structure (BOS) signals."
+      ],
+      "createdUtc": "2026-11-01T07:51:04.159Z",
+      "updatedUtc": "2026-11-01T07:51:04.159Z"
     }
   ],
   "patterns": [
@@ -915,20 +963,6 @@
       "updatedUtc": "2026-10-31T16:47:47.223Z"
     },
     {
-      "id": 15,
-      "pattern": "주어 + deserve + 명사\\",
-      "ko": "주어가 \\~을 받을 만하다\\",
-      "sourceId": 7,
-      "sourceIds": [
-        7
-      ],
-      "examples": [
-        "Stay grounded, this one deserves the spotlight.\\"
-      ],
-      "createdUtc": "2026-11-01T07:42:06.913Z",
-      "updatedUtc": "2026-11-01T07:42:06.913Z"
-    },
-    {
       "id": 16,
       "pattern": "stay ~",
       "ko": "~한 상태를 유지하다",
@@ -955,6 +989,48 @@
       ],
       "createdUtc": "2026-11-01T07:42:43.600Z",
       "updatedUtc": "2026-11-01T07:42:43.600Z"
+    },
+    {
+      "id": 18,
+      "pattern": "remain ~",
+      "ko": "계속 ~한 상태를 유지하다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "The downtrend remains dominant."
+      ],
+      "createdUtc": "2026-11-01T07:51:04.159Z",
+      "updatedUtc": "2026-11-01T07:51:04.159Z"
+    },
+    {
+      "id": 19,
+      "pattern": "be characterized by ~",
+      "ko": "~을 특징으로 하다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "The downtrend remains dominant, characterized by a sequence of Lower Highs (LH) and Lower Lows (LL)."
+      ],
+      "createdUtc": "2026-11-01T07:51:04.159Z",
+      "updatedUtc": "2026-11-01T07:51:04.159Z"
+    },
+    {
+      "id": 20,
+      "pattern": "multiple consecutive ~",
+      "ko": "여러 차례 연속된 ~",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "Bearish Market Structure: The downtrend remains dominant, characterized by a sequence of Lower Highs (LH) and Lower Lows (LL), alongside multiple consecutive bearish Break of Structure (BOS) signals."
+      ],
+      "createdUtc": "2026-11-01T07:51:04.159Z",
+      "updatedUtc": "2026-11-01T07:51:04.159Z"
     }
   ]
 }
