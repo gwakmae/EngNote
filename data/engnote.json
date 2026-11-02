@@ -851,6 +851,86 @@
       ],
       "createdUtc": "2026-11-01T07:55:02.964Z",
       "updatedUtc": "2026-11-01T07:55:02.964Z"
+    },
+    {
+      "id": 58,
+      "en": "find",
+      "pronUs": "파인드",
+      "pronUk": null,
+      "ko": "~라고 느끼다, ~라고 판단하다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Do you usually find it hard to step away from the charts after a losing trade?"
+      ],
+      "createdUtc": "2026-11-02T12:30:48.243Z",
+      "updatedUtc": "2026-11-02T12:30:48.243Z"
+    },
+    {
+      "id": 59,
+      "en": "find it hard to",
+      "pronUs": "파인드 잇 하드 투",
+      "pronUk": null,
+      "ko": "~하는 것을 어렵게 느끼다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Do you usually find it hard to step away from the charts after a losing trade?"
+      ],
+      "createdUtc": "2026-11-02T12:30:48.244Z",
+      "updatedUtc": "2026-11-02T12:30:48.244Z"
+    },
+    {
+      "id": 60,
+      "en": "step away from",
+      "pronUs": "스텝 어웨이 프럼",
+      "pronUk": null,
+      "ko": "~에서 물러나다, ~에서 손을 떼다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Do you usually find it hard to step away from the charts after a losing trade?"
+      ],
+      "createdUtc": "2026-11-02T12:30:48.244Z",
+      "updatedUtc": "2026-11-02T12:30:48.244Z"
+    },
+    {
+      "id": 61,
+      "en": "usually",
+      "pronUs": "유주얼리",
+      "pronUk": null,
+      "ko": "보통, 대개",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Do you usually find it hard to step away from the charts after a losing trade?"
+      ],
+      "createdUtc": "2026-11-02T12:30:48.244Z",
+      "updatedUtc": "2026-11-02T12:30:48.244Z"
+    },
+    {
+      "id": 62,
+      "en": "losing trade",
+      "pronUs": "루징 트레이드",
+      "pronUk": null,
+      "ko": "손실 거래",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Do you usually find it hard to step away from the charts after a losing trade?"
+      ],
+      "createdUtc": "2026-11-02T12:30:48.244Z",
+      "updatedUtc": "2026-11-02T12:30:48.244Z"
     }
   ],
   "patterns": [
@@ -1137,6 +1217,48 @@
       ],
       "createdUtc": "2026-11-01T07:55:02.965Z",
       "updatedUtc": "2026-11-01T07:55:02.965Z"
+    },
+    {
+      "id": 24,
+      "pattern": "Do you usually find it hard to ~?",
+      "ko": "보통 ~하는 것을 어렵게 느끼나요?",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "Do you usually find it hard to step away from the charts after a losing trade?"
+      ],
+      "createdUtc": "2026-11-02T12:30:48.244Z",
+      "updatedUtc": "2026-11-02T12:30:48.244Z"
+    },
+    {
+      "id": 25,
+      "pattern": "step away from ~",
+      "ko": "~에서 잠시 벗어나다, ~에서 손을 떼다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "I need to step away from the charts."
+      ],
+      "createdUtc": "2026-11-02T12:30:48.244Z",
+      "updatedUtc": "2026-11-02T12:30:48.244Z"
+    },
+    {
+      "id": 26,
+      "pattern": "after a ~",
+      "ko": "~한 후에",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "Do you usually find it hard to step away from the charts after a losing trade?"
+      ],
+      "createdUtc": "2026-11-02T12:30:48.244Z",
+      "updatedUtc": "2026-11-02T12:30:48.244Z"
     }
   ]
 }
