@@ -931,6 +931,86 @@
       ],
       "createdUtc": "2026-11-02T12:30:48.244Z",
       "updatedUtc": "2026-11-02T12:30:48.244Z"
+    },
+    {
+      "id": 63,
+      "en": "be through",
+      "pronUs": "비 쓰루",
+      "pronUk": null,
+      "ko": "~을 겪다, ~을 경험하다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Yesss, and almost everyone in trading has been through something like that."
+      ],
+      "createdUtc": "2026-11-02T12:36:46.174Z",
+      "updatedUtc": "2026-11-02T12:36:46.174Z"
+    },
+    {
+      "id": 64,
+      "en": "almost",
+      "pronUs": "올모우스트",
+      "pronUk": null,
+      "ko": "거의",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Yesss, and almost everyone in trading has been through something like that."
+      ],
+      "createdUtc": "2026-11-02T12:36:46.174Z",
+      "updatedUtc": "2026-11-02T12:36:46.174Z"
+    },
+    {
+      "id": 65,
+      "en": "everyone",
+      "pronUs": "",
+      "pronUk": null,
+      "ko": "모든 사람, 누구나",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Yesss, and almost everyone in trading has been through something like that."
+      ],
+      "createdUtc": "2026-11-02T12:36:46.174Z",
+      "updatedUtc": "2026-11-02T12:36:46.174Z"
+    },
+    {
+      "id": 66,
+      "en": "trading",
+      "pronUs": "트레이딩",
+      "pronUk": null,
+      "ko": "트레이딩, 매매",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Yesss, and almost everyone in trading has been through something like that."
+      ],
+      "createdUtc": "2026-11-02T12:36:46.174Z",
+      "updatedUtc": "2026-11-02T12:36:46.174Z"
+    },
+    {
+      "id": 67,
+      "en": "something like that",
+      "pronUs": "섬씽 라이크 댓",
+      "pronUk": null,
+      "ko": "그런 것과 비슷한 일, 그런 경험",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Yesss, and almost everyone in trading has been through something like that."
+      ],
+      "createdUtc": "2026-11-02T12:36:46.174Z",
+      "updatedUtc": "2026-11-02T12:36:46.174Z"
     }
   ],
   "patterns": [
@@ -1259,6 +1339,48 @@
       ],
       "createdUtc": "2026-11-02T12:30:48.244Z",
       "updatedUtc": "2026-11-02T12:30:48.244Z"
+    },
+    {
+      "id": 27,
+      "pattern": "have/has been through ~",
+      "ko": "~을 겪어 봤다, ~을 경험했다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "Yesss, and almost everyone in trading has been through something like that."
+      ],
+      "createdUtc": "2026-11-02T12:36:46.174Z",
+      "updatedUtc": "2026-11-02T12:36:46.174Z"
+    },
+    {
+      "id": 28,
+      "pattern": "Almost everyone in ~",
+      "ko": "~ 분야의 거의 모든 사람",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "Almost everyone in trading experiences losses."
+      ],
+      "createdUtc": "2026-11-02T12:36:46.174Z",
+      "updatedUtc": "2026-11-02T12:36:46.174Z"
+    },
+    {
+      "id": 29,
+      "pattern": "something like that",
+      "ko": "그런 것과 비슷한 일, 앞서 언급한 상황",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "I've experienced something like that."
+      ],
+      "createdUtc": "2026-11-02T12:36:46.174Z",
+      "updatedUtc": "2026-11-02T12:36:46.174Z"
     }
   ]
 }
