@@ -952,7 +952,7 @@
       "id": 68,
       "en": "processing",
       "pronUs": "프라세싱",
-      "pronUk": null,
+      "pronUk": "프로세싱",
       "ko": "처리, 업무 진행",
       "sourceId": 7,
       "sourceIds": [
@@ -962,7 +962,7 @@
         "Rest assured, your request will be forwarded to the relevant department for thorough review and processing."
       ],
       "createdUtc": "2026-11-03T16:52:12.637Z",
-      "updatedUtc": "2026-11-03T16:52:12.637Z"
+      "updatedUtc": "2026-11-03T16:56:27.274Z"
     }
   ],
   "patterns": [
@@ -1348,6 +1348,21 @@
       ],
       "createdUtc": "2026-11-03T16:52:12.638Z",
       "updatedUtc": "2026-11-03T16:52:12.638Z"
+    },
+    {
+      "id": 31,
+      "pattern": "~ will be forwarded to ... for ...",
+      "ko": "~는 ...를 위해 ...로 전달될 것입니다",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "Rest assured, your request will be forwarded to the relevant department for thorough review and processing.",
+        "Your request will be forwarded to the relevant department for thorough review."
+      ],
+      "createdUtc": "2026-11-03T16:56:27.275Z",
+      "updatedUtc": "2026-11-03T16:56:27.275Z"
     }
   ]
 }
