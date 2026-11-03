@@ -901,22 +901,6 @@
       "updatedUtc": "2026-11-02T12:30:48.244Z"
     },
     {
-      "id": 61,
-      "en": "usually",
-      "pronUs": "유주얼리",
-      "pronUk": null,
-      "ko": "보통, 대개",
-      "sourceId": 7,
-      "sourceIds": [
-        7
-      ],
-      "contexts": [
-        "Do you usually find it hard to step away from the charts after a losing trade?"
-      ],
-      "createdUtc": "2026-11-02T12:30:48.244Z",
-      "updatedUtc": "2026-11-02T12:30:48.244Z"
-    },
-    {
       "id": 62,
       "en": "losing trade",
       "pronUs": "루징 트레이드",
@@ -949,54 +933,6 @@
       "updatedUtc": "2026-11-02T12:36:46.174Z"
     },
     {
-      "id": 64,
-      "en": "almost",
-      "pronUs": "올모우스트",
-      "pronUk": null,
-      "ko": "거의",
-      "sourceId": 7,
-      "sourceIds": [
-        7
-      ],
-      "contexts": [
-        "Yesss, and almost everyone in trading has been through something like that."
-      ],
-      "createdUtc": "2026-11-02T12:36:46.174Z",
-      "updatedUtc": "2026-11-02T12:36:46.174Z"
-    },
-    {
-      "id": 65,
-      "en": "everyone",
-      "pronUs": "",
-      "pronUk": null,
-      "ko": "모든 사람, 누구나",
-      "sourceId": 7,
-      "sourceIds": [
-        7
-      ],
-      "contexts": [
-        "Yesss, and almost everyone in trading has been through something like that."
-      ],
-      "createdUtc": "2026-11-02T12:36:46.174Z",
-      "updatedUtc": "2026-11-02T12:36:46.174Z"
-    },
-    {
-      "id": 66,
-      "en": "trading",
-      "pronUs": "트레이딩",
-      "pronUk": null,
-      "ko": "트레이딩, 매매",
-      "sourceId": 7,
-      "sourceIds": [
-        7
-      ],
-      "contexts": [
-        "Yesss, and almost everyone in trading has been through something like that."
-      ],
-      "createdUtc": "2026-11-02T12:36:46.174Z",
-      "updatedUtc": "2026-11-02T12:36:46.174Z"
-    },
-    {
       "id": 67,
       "en": "something like that",
       "pronUs": "섬씽 라이크 댓",
@@ -1011,6 +947,22 @@
       ],
       "createdUtc": "2026-11-02T12:36:46.174Z",
       "updatedUtc": "2026-11-02T12:36:46.174Z"
+    },
+    {
+      "id": 68,
+      "en": "processing",
+      "pronUs": "프라세싱",
+      "pronUk": null,
+      "ko": "처리, 업무 진행",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [
+        "Rest assured, your request will be forwarded to the relevant department for thorough review and processing."
+      ],
+      "createdUtc": "2026-11-03T16:52:12.637Z",
+      "updatedUtc": "2026-11-03T16:52:12.637Z"
     }
   ],
   "patterns": [
@@ -1381,6 +1333,21 @@
       ],
       "createdUtc": "2026-11-02T12:36:46.174Z",
       "updatedUtc": "2026-11-02T12:36:46.174Z"
+    },
+    {
+      "id": 30,
+      "pattern": "for further ~ and ~",
+      "ko": "추가적인 ~ 및 ~을 위해",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [
+        "Rest assured, your request will be forwarded to the relevant department for thorough review and processing.",
+        "Your case has been submitted for further review and processing."
+      ],
+      "createdUtc": "2026-11-03T16:52:12.638Z",
+      "updatedUtc": "2026-11-03T16:52:12.638Z"
     }
   ]
 }
