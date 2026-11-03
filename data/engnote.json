@@ -979,6 +979,20 @@
       ],
       "createdUtc": "2026-11-03T16:58:09.302Z",
       "updatedUtc": "2026-11-03T16:58:09.302Z"
+    },
+    {
+      "id": 70,
+      "en": "thorough pron-us: 써-로우 pron-uk: 써-러 ko: 철저한, 빈틈없는 ctx: Rest assured, your request will be forwarded to the relevant department for thorough review and processing.",
+      "pronUs": "",
+      "pronUk": null,
+      "ko": "",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "contexts": [],
+      "createdUtc": "2026-11-03T17:01:35.177Z",
+      "updatedUtc": "2026-11-03T17:01:35.177Z"
     }
   ],
   "patterns": [
@@ -1393,6 +1407,18 @@
       ],
       "createdUtc": "2026-11-03T16:58:09.303Z",
       "updatedUtc": "2026-11-03T16:58:09.303Z"
+    },
+    {
+      "id": 33,
+      "pattern": "be forwarded to ~ ko: ~로 전달되다 ex: Rest assured, your request will be forwarded to the relevant department for thorough review and processing.",
+      "ko": "",
+      "sourceId": 7,
+      "sourceIds": [
+        7
+      ],
+      "examples": [],
+      "createdUtc": "2026-11-03T17:01:35.177Z",
+      "updatedUtc": "2026-11-03T17:01:35.177Z"
     }
   ]
 }
